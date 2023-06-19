@@ -23,12 +23,13 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => SignupPage(), // Renommé de SignUpPage à SignupPage
-        '/login': (context) => SigninPage(), // Renommé de LoginPage à SigninPage
+        '/': (context) => SignupPage(),
+        '/login': (context) => SigninPage(),
         '/forgotPassword': (context) => ForgotPasswordPage(),
         '/home': (context) => HomePage(),
         '/categorieList': (context) => CategoriesOverview(),
         '/categorieFiltre': (context) => CategoryFilterPage(),
+        '/signin': (context) => SigninPage(), // Ajout de la route pour la page de connexion
       },
     );
   }

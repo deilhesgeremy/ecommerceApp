@@ -35,25 +35,26 @@ class _SigninPageState extends State<SigninPage> {
     const pageColor = Color(0xfff9f9f9);
 
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: pageColor,
-          toolbarHeight: 30,
-          elevation: 0,
-          automaticallyImplyLeading: false,
-        ),
-        body: SafeArea(
-            child: Container(
-          decoration: BoxDecoration(
-            color: pageColor,
-          ),
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 80.0),
-                child: Column(
+      appBar: AppBar(
+        backgroundColor: pageColor,
+        toolbarHeight: 30,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              color: pageColor,
+            ),
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 80.0),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
@@ -64,151 +65,162 @@ class _SigninPageState extends State<SigninPage> {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 20),
-                        child: Text('Login',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                                fontSize: 30.0, fontWeight: FontWeight.bold)),
+                        child: Text(
+                          'Login',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ]),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 25),
-                child: Column(children: [
-                  Card(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 25),
+                  child: Column(
+                    children: [
+                      Card(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
+                            labelText: 'Email',
+                            floatingLabelStyle: TextStyle(height: 3),
+                            contentPadding: EdgeInsets.only(left: 15, right: 15),
                           ),
-                          labelText: 'Email',
-                          floatingLabelStyle: TextStyle(height: 3),
-                          contentPadding: EdgeInsets.only(left: 15, right: 15)),
-                    ),
-                  ),
-                  Card(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
+                        ),
+                      ),
+                      Card(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
+                            labelText: 'Password',
+                            floatingLabelStyle: TextStyle(height: 3),
+                            contentPadding: EdgeInsets.only(left: 15, right: 15),
                           ),
-                          labelText: 'Password',
-                          floatingLabelStyle: TextStyle(height: 3),
-                          contentPadding: EdgeInsets.only(left: 15, right: 15)),
-                    ),
+                        ),
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/forgotPassword');
-                    },
-                    child: Text(
-                      'Forgot your password? ',
-                      style: TextStyle(fontSize: 15.0, color: Colors.black),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/forgotPassword');
+                      },
+                      child: Text(
+                        'Forgot your password? ',
+                        style: TextStyle(fontSize: 15.0, color: Colors.black),
+                      ),
                     ),
-                  ),
-                  rightArrowIcon,
-                ],
-              ),
-              SizedBox(height: 40),
-              Center(
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.red),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(30.0), // adjust as needed
+                    rightArrowIcon,
+                  ],
+                ),
+                SizedBox(height: 40),
+                Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home');
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 15),
+                        child: Text(
+                          "LOGIN",
+                          style: TextStyle(color: Colors.white, letterSpacing: 1),
                         ),
                       ),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      child: Text(
-                        "LOGIN",
-                        style: TextStyle(color: Colors.white, letterSpacing: 1),
-                      ),
-                    ),
                   ),
+                ),
+                SizedBox(height: 30),
+              ],
+            ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            "Or login with social account",
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 4,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: googleLogo,
+                ),
+              ),
+              SizedBox(width: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 4,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: facebookLogo,
                 ),
               ),
             ],
           ),
-        )),
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Or login with social account",
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 4,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: googleLogo,
-                  ),
-                ),
-                SizedBox(width: 20),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 4,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: facebookLogo,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 50)
-          ],
-        ));
+          SizedBox(height: 30),
+        ],
+      ),
+    );
   }
 }
